@@ -19,13 +19,15 @@ RUN npm install -g nodemon
 VOLUME ["/var/expressjs"]
 
 # Define working directory.
-WORKDIR /var/expressjs
+WORKDIR /
 
 COPY start.sh /
 
+RUN chmod -R 700 /start.sh
+
 # Define default command.
 # CMD ["nodemon", "/var/expressjs/server.js"]
-CMD ["start.sh"]
+CMD ["/start.sh"]
 
 # Expose ports.
 EXPOSE 80
